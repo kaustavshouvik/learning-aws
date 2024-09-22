@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Static Hosting</title>
+  </head>
+  <body>
+    <p>Counter: <span id="counter-content">0</span></p>
+    <div>
+      <button id="counter-start-btn">Start Counter</button>
+      <button id="counter-stop-btn">Stop Counter</button>
+    </div>
+  </body>
+  <script>
+    const counterStartBtn = document.getElementById('counter-start-btn');
+    const counterStopBtn = document.getElementById('counter-stop-btn');
+    const counterEl = document.getElementById('counter-content');
+
+    let intervalId = null;
+    let count = 0;
+
+    const startInterval = () => {
+      if (intervalId) return;
+
+      intervalId = setInterval(() => {
+        count += 1;
+        counterEl.innerHTML = count;
+      }, 1000);
+    };
+
+    const stopCounter = () => {
+      if (intervalId) {
+        clearInterval(intervalId);
+        intervalId = null;
+      }
+    };
+
+    counterStartBtn.addEventListener('click', startInterval);
+    counterStopBtn.addEventListener('click', stopCounter);
+  </script>
+</html>
