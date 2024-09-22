@@ -1,13 +1,10 @@
 1. Create a S3 bucket, default settings.
 2. Upload the `index.html` file.
 3. Create CloudFront distribution.
-
-   3.1. Use original access control.
-
+   1. Use original access control.
 4. Copy bucket policy to s3.
 5. Go to URL provided by the CloudFront distribution.
-
-   5.1. Since public access is not allowed in S3, the URL should be used with the object path -> `<cf-dist-id>.cloudfront.net/index.html`.
+   1. Since public access is not allowed in S3, the URL should be used with the object path -> `<cf-dist-id>.cloudfront.net/index.html`.
 
 ---
 
